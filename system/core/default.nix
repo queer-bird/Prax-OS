@@ -3,7 +3,6 @@
 {
   imports = [
     ./boot.nix
-    ./hardware-configuration.nix
     ./security.nix
     ./users.nix
   ];

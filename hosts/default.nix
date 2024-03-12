@@ -19,13 +19,6 @@
         ./PraxBox
 
         "${mod}/programs/gamemode.nix"
-        #"${mod}/desktops/plasma.nix"
-
-        "${mod}/programs/steam.nix"
-
-        #         "${mod}/services/kmonad"
-        #"${mod}/services/gnome-services.nix"
-        "${mod}/services/location.nix"
 
         inputs.pm.nixosModules.plasma
         inputs.pm.nixosModules.art

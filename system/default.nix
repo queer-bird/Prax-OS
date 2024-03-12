@@ -1,10 +1,10 @@
 {...}: {
   imports = [
     ./core
-    ./programs
-    ./hardware
-    ./network
-    ./nix
-    ./services
+    # ./programs
+    # ./hardware
+    # ./network
+    # ./nix
+    # ./services
   ];
 }

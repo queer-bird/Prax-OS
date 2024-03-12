@@ -1,37 +1,40 @@
 {
   description = "fufexan's NixOS and Home-Manager flake";
 
-  outputs = inputs @ {
-    nixpkgs,
-    home-manager,
-    ...
-  }: {
-    nixosConfigurations = {
-      # TODO please change the hostname to your own
-      io = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./lib
-          ./modules
-          ./pkgs
-          ./system
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+      imports = [
+        ./hosts
+        ./lib
+        ./modules
+        ./pkgs
+        ./pre-commit-hooks.nix
+      ];
 
-            # TODO replace ryan with your own username
-            home-manager.users.ryan = import ./home;
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        devShells.default = pkgs.mkShell {
+          packages = [
+            pkgs.alejandra
+            pkgs.git
+            pkgs.nodePackages.prettier
+            config.packages.repl
+          ];
+          name = "dots";
+          DIRENV_LOG_FORMAT = "";
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
+        };
 
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          }
-        ];
+        formatter = pkgs.alejandra;
       };
     };
-  };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -40,6 +43,12 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "hm";
     };
 
     fu.url = "github:numtide/flake-utils";
@@ -52,7 +61,7 @@
 
     helix.url = "github:helix-editor/helix";
 
-    home-manager = {
+    hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
