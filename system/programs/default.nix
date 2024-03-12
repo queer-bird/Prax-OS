@@ -5,7 +5,6 @@
     # ./qt.nix
     ./steam.nix
     ./xdg.nix
-    ./zsh.nix
   ];
 
   programs = {
