@@ -67,28 +67,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-     hypridle.url = "github:hyprwm/hypridle";
+    hypridle.url = "github:hyprwm/hypridle";
 
-     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
 
-     hyprland-contrib = {
-       url = "github:hyprwm/contrib";
-       inputs.nixpkgs.follows = "nixpkgs";
-     };
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-     hyprland-plugins = {
-       url = "github:hyprwm/hyprland-plugins";
-       inputs.hyprland.follows = "hyprland";
-     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
-     hyprlock.url = "github:hyprwm/hyprlock";
+    hyprlock.url = "github:hyprwm/hyprlock";
 
-     hyprpaper.url = "github:hyprwm/hyprpaper";
-#
-#     kmonad = {
-#       url = "github:kmonad/kmonad?dir=nix";
-#       inputs.nixpkgs.follows = "nixpkgs";
-#     };
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    #
+    #     kmonad = {
+    #       url = "github:kmonad/kmonad?dir=nix";
+    #       inputs.nixpkgs.follows = "nixpkgs";
+    #     };
 
     lanzaboote.url = "github:nix-community/lanzaboote";
 
@@ -119,10 +119,16 @@
     };
 
     #universal theming tool
-    stylix = { url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-     yazi.url = "github:sxyazi/yazi";
+    pm = {
+      url = "github:queer-bird/Prax-Modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    yazi.url = "github:sxyazi/yazi";
   };
 }
