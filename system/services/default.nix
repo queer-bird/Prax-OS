@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  imports = [
+    location.nix
+    pipewire.nix
+  ];
+
   services = {
     dbus.implementation = "broker";
 

@@ -7,44 +7,40 @@
   flake.nixosConfigurations = let
     # shorten paths
     inherit (inputs.nixpkgs.lib) nixosSystem;
-#     howdy = inputs.nixpkgs-howdy;
     mod = "${self}/system";
-
-    # get the basic config to build on top of
-    inherit (import "${self}/system") desktop laptop;
 
     # get these into the module system
     specialArgs = {inherit inputs self;};
   in {
-    io = nixosSystem {
+    PraxBox = nixosSystem {
       inherit specialArgs;
-      modules =
-        desktop
-        ++ [
-          ./PraxBox
+      modules = [
+        "${mod}"
+        ./PraxBox
 
+        "${mod}/programs/gamemode.nix"
+        #"${mod}/desktops/plasma.nix"
 
-          "${mod}/programs/gamemode.nix"
-          "${mod}/desktops/plasma.nix"
-          "${mod}/programs/steam.nix"
+        "${mod}/programs/steam.nix"
 
-#         "${mod}/services/kmonad"
-          "${mod}/services/gnome-services.nix"
-          "${mod}/services/location.nix"
+        #         "${mod}/services/kmonad"
+        #"${mod}/services/gnome-services.nix"
+        "${mod}/services/location.nix"
 
-           inputs.hm.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              #users.cmde.imports = homeImports."cmde@io";
-              users.cmde.imports = [../home/profiles/PraxBox];
-              extraSpecialArgs = specialArgs;
-            };
-          }
-          inputs.agenix.nixosModules.default
-#           inputs.chaotic.nixosModules.default
-        ];
+        inputs.pm.nixosModules.plasma
+        inputs.pm.nixosModules.art
+
+        inputs.hm.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            #users.cmde.imports = homeImports."cmde@PraxBox";
+            users.cmde.imports = [../home];
+            extraSpecialArgs = specialArgs;
+          };
+        }
+      ];
     };
 
     # rog = nixosSystem {
@@ -61,16 +57,6 @@
 
     #       "${mod}/services/kmonad"
     #       {home-manager.users.cmde.imports = homeImports."cmde@rog";}
-    #     ];
-    # };
-
-    # kiiro = nixosSystem {
-    #   inherit specialArgs;
-    #   modules =
-    #     desktop
-    #     ++ [
-    #       ./kiiro
-    #       {home-manager.users.cmde.imports = homeImports.server;}
     #     ];
     # };
   };

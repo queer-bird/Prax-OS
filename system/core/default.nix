@@ -2,10 +2,10 @@
 # default configuration shared by all hosts
 {
   imports = [
+    ./boot.nix
+    ./hardware-configuration.nix
     ./security.nix
     ./users.nix
-    ../nix
-    ../programs/zsh.nix
   ];
 
   i18n = {

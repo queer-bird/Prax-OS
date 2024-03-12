@@ -5,13 +5,41 @@
   ...
 }: {
   imports = [
-    ./specialisations.nix
-    ./terminal
     inputs.matugen.nixosModules.default
     inputs.nix-index-db.hmModules.nix-index
-     inputs.hyprlock.homeManagerModules.default
-     inputs.hypridle.homeManagerModules.default
+    inputs.hyprlock.homeManagerModules.default
+    inputs.hypridle.homeManagerModules.default
     self.nixosModules.theme
+
+    # editors
+    ./editors/helix
+    ./editors/neovim
+    ./editors/vscode
+
+    # programs
+    ./programs
+    ./programs/games
+    #../../programs/wayland
+    ./desktops/plasma
+
+    # media services
+    ./services/media/playerctl.nix
+
+    # system services
+    # ../../services/system/dunst.nix
+    # ../../services/system/kdeconnect.nix
+    # ../../services/system/polkit-agent.nix
+    ./services/system/power-monitor.nix
+    ./services/system/udiskie.nix
+
+    # wayland-specific
+    #  ../../services/wayland/hyprpaper.nix
+    # ../../services/wayland/hypridle.nix
+
+    # terminal emulators
+    ./terminal/emulators/foot.nix
+    ./specialisations.nix
+    ./terminal
   ];
 
   home = {

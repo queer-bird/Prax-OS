@@ -71,7 +71,6 @@
         grep = "grep --color";
         ip = "ip --color";
         l = "eza -l";
-        la = "eza -la";
         md = "mkdir -p";
         ppc = "powerprofilesctl";
         pf = "powerprofilesctl launch -p performance";
