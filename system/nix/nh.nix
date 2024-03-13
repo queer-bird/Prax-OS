@@ -4,7 +4,7 @@
   ];
 
   # nh default flake
-  environment.variables.FLAKE = "/home/cmde/Documents/Projects/Prax/Prax-OS";
+  environment.variables.FLAKE = "/home/cmde/Projects/Prax-OS";
 
   nh = {
     enable = true;

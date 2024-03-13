@@ -9,8 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
-  environment.systemPackages = [pkgs.scx];
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   hardware = {
     opentabletdriver.enable = true;

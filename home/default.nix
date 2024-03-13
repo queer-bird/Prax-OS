@@ -18,26 +18,16 @@
 
     # programs
     ./programs
-    ./programs/games
-    #../../programs/wayland
+
     ./desktops/plasma
 
     # media services
     ./services/media/playerctl.nix
 
     # system services
-    # ../../services/system/dunst.nix
-    # ../../services/system/kdeconnect.nix
-    # ../../services/system/polkit-agent.nix
     ./services/system/power-monitor.nix
-    ./services/system/udiskie.nix
-
-    # wayland-specific
-    #  ../../services/wayland/hyprpaper.nix
-    # ../../services/wayland/hypridle.nix
 
     # terminal emulators
-    ./terminal/emulators/foot.nix
     ./specialisations.nix
     ./terminal
   ];

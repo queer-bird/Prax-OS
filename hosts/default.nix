@@ -18,10 +18,10 @@
         "${mod}"
         ./PraxBox
 
-        "${mod}/programs/gamemode.nix"
+        #Steam, Fufexan's GameMode, Emulators. Very Optional.
+        "${mod}/programs/gaming"
 
-        inputs.pm.nixosModules.plasma
-        inputs.pm.nixosModules.art
+        "${mod}/desktops/plasma.nix"
 
         inputs.hm.nixosModules.home-manager
         {
@@ -29,7 +29,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             #users.cmde.imports = homeImports."cmde@PraxBox";
-            users.cmde.imports = [../home];
+            users.cmde.imports = [../home/default.nix];
             extraSpecialArgs = specialArgs;
           };
         }

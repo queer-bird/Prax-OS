@@ -5,7 +5,7 @@
   ];
 
   services = {
-    dbus.implementation = "broker";
+    dbus.implementation = "dbus";
 
     # profile-sync-daemon
     psd = {

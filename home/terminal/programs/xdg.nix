@@ -7,11 +7,6 @@
     enable = true;
     cacheHome = config.home.homeDirectory + "/.local/cache";
 
-    mimeApps = {
-      enable = true;
-      defaultApplications = associations;
-    };
-
     userDirs = {
       enable = true;
       createDirectories = true;
