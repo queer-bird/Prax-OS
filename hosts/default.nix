@@ -21,7 +21,7 @@
         #Steam, Fufexan's GameMode, Emulators. Very Optional.
         "${mod}/programs/gaming"
 
-        "${mod}/desktops/plasma.nix"
+        "${mod}/desktops/gnome.nix"
 
         inputs.hm.nixosModules.home-manager
         {

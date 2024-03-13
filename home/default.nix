@@ -19,7 +19,7 @@
     # programs
     ./programs
 
-    ./desktops/plasma
+    ./desktops/gnome
 
     # media services
     ./services/media/playerctl.nix

@@ -123,11 +123,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pm = {
-      url = "github:queer-bird/Prax-Modules";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     yazi.url = "github:sxyazi/yazi";
   };
 }
